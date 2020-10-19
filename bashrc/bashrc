@@ -1,0 +1,38 @@
+function gitremove() {
+	sudo rm -rf .git
+	sudo rm -rf .gitignore
+	sudo rm -rf .gitattributes
+	sudo rm -rf LICENSE
+}
+
+function gitinit() {
+	git init
+
+	cp ~/Documents/Code/standards/templates/gitignore.template .gitignore
+	cp ~/Documents/Code/standards/templates/gitattributes.template .gitattributes
+	git add .gitignore
+	git add .gitattributes
+	git commit -m "added .gitignore, and .gitattributes"
+
+	cp ~/Documents/Code/standards/licenses/mit.txt LICENSE
+	git add LICENSE
+	git commit -m "Added MIT license file"
+}
+
+function gitupdatefiles() {
+	cp ~/Documents/Code/standards/templates/gitignore.template .gitignore
+	cp ~/Documents/Code/standards/templates/gitattributes.template .gitattributes
+
+	git add .gitignore
+	git add .gitattributes
+	git commit -m "updated .gitignore and .gitattribute files"
+}
+
+function editbashrc() {
+	sudo nano ~/.bashrc
+	source ~/.bashrc
+}
+
+function backupbashrc() {
+	sudo cp ~/.bashrc ~/Documents/Code/standards/bashrc/bashrc
+}
